@@ -1,0 +1,20 @@
+#define LED_BUILTIN 2
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(12,INPUT);
+  Serial.begin(115200);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  bool pirsensor = digitalRead(12);
+  if (pirsensor){
+    digitalWrite(LED_BUILTIN, HIGH);   
+    Serial.println("1");
+    delay(500);}
+  else{
+    digitalWrite(LED_BUILTIN, LOW);
+    Serial.println("0"); 
+    delay(5000);}   
+}
