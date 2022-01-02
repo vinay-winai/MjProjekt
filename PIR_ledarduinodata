@@ -16,5 +16,5 @@ void loop() {
   else{
     digitalWrite(LED_BUILTIN, LOW);
     Serial.println("0"); 
-    delay(5000);}   
+    delay(1000);}   
 }
