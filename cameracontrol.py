@@ -1,32 +1,23 @@
 # import the opencv library
 import cv2
 import serial
-
-serialport = serial.Serial('COM4',baudrate=115200,timeout=2)
-
-for i in range(1,13):
-    arduinodata = serialport.readline().decode('ascii')
-    print(arduinodata)
-
-# define a video capture object
-if(arduinodata):
+import time
+def camfun():
+    capture_duration = 10
+    start_time = time.time()
     vid = cv2.VideoCapture(0)
-  
-    while(True):
-      
-    # Capture the video frame
-    # by frame
+    while( int(time.time() - start_time) < capture_duration ):
         ret, frame = vid.read()
-  
-    # Display the resulting frame
         cv2.imshow('frame', frame)
-      
-    # the 'q' button is set as the
-    # quitting button you may use any
-    # desired button of your choice
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-	# After the loop release the cap object
     vid.release()
-# Destroy all the windows
     cv2.destroyAllWindows()
+
+serialport = serial.Serial('COM4',baudrate=115200,timeout=2)
+while(True):
+	arduino_data = serialport.readline().decode('ascii')
+	if arduino_data == 1:
+		camfun()
+	else:
+		pass
