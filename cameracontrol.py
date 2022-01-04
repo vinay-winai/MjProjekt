@@ -3,13 +3,12 @@ import cv2
 import serial
 
 serialport = serial.Serial('COM4',baudrate=115200,timeout=2)
-
-
-arduinodata = serialport.readline().decode('ascii')
-print(arduinodata)
+for i in range(0,11):
+    arduinodata = serialport.readline()
+    print(arduinodata)
 
 # define a video capture object
-if(arduinodata):
+if(arduinodata == b'1\r\n'):
     vid = cv2.VideoCapture(0)
   
     while(True):
@@ -24,7 +23,7 @@ if(arduinodata):
     # the 'q' button is set as the
     # quitting button you may use any
     # desired button of your choice
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        if :
             break
 	# After the loop release the cap object
     vid.release()
