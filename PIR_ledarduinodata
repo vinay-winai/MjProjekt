@@ -1,12 +1,11 @@
 #define LED_BUILTIN 2
 void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(12,INPUT);  // pin for data_in. 
   pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(12,INPUT);
   Serial.begin(115200);
 }
 
-// the loop function runs over and over again forever
+// infinite loop that checks for sensor data.
 void loop() {
   bool pirsensor = digitalRead(12);
   if (pirsensor){
