@@ -1,2 +1,2 @@
 # MjProjekt
-This project's functions as surveillence system through motion detection.
+This project's functions as surveillance system through motion detection.
