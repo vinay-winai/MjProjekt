@@ -23,8 +23,6 @@ def readData():
         MakeVideo.makeVideo()
         Compress.deleteFrames()
         serialport.open()
-    else:
-        pass
-
+        
 while(True):
     readData()  
