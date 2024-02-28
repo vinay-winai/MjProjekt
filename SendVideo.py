@@ -3,10 +3,10 @@ import telegram
 
 def sendVideo(filename):
     # initializing a telegram bot 
-    bot = telegram.Bot('5172556132:AAFOLQF8BpBrckxNnKLsfyeljlLmWHdZpQw')
+    bot = telegram.Bot('token')
     # to send video
     if bot.get_updates():
-        chat_id =  '1122917287'
+        chat_id =  'id'
         # provide the file path here in fpath variable
         fpath = f"D:\\python_idleprog\\Practice\\{filename}"
         video=open(fpath,'rb')
